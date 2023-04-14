@@ -3,7 +3,6 @@ import pygame
 from dino_runner.components.dinosaur import Dinosaur
 from dino_runner.utils.constants import BG, ICON, SCREEN_HEIGHT, SCREEN_WIDTH, TITLE, FPS
 
-
 class Game:
     def __init__(self):
         pygame.init()
@@ -34,7 +33,6 @@ class Game:
     def update(self):
         user_input = pygame.key.get_pressed()
         self.player.update(user_input)
-        
 
     def draw(self):
         self.clock.tick(FPS)
