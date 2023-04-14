@@ -7,14 +7,12 @@ class Dinosaur:
         self.X_POS =  80
         self.Y_POS = 310
         self.JUMP_VEL = 8.5
-        self.DUCK_VEL = 8.5
         self.image = RUNNING[0]
         self.dino_rect = self.image.get_rect()
         self.dino_rect.x = self.X_POS
         self.dino_rect.y = self.Y_POS
         self.step_index = 0
         self.jump_vel = self.JUMP_VEL
-        self.duck_vel = self.DUCK_VEL
         self.dino_run = True
         self.dino_jump = False
         self.dino_duck = False
