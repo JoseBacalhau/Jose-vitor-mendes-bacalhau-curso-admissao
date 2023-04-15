@@ -1,7 +1,9 @@
 import pygame
+from pygame.sprite import Sprite
+
 from dino_runner.utils.constants import RUNNING, JUMPING, DUCKING
 
-class Dinosaur:
+class Dinosaur(Sprite):
     
     def __init__(self):
         self.X_POS =  80
