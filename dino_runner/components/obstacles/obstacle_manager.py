@@ -13,7 +13,7 @@ class ObstacleManager:
             Cactus(),
             Bird(),
         ]
-
+    
         if len(self.obstacles) == 0:            
             self.obstacles.append(obstacle_type[random.randint(0,1)])
 
@@ -23,11 +23,14 @@ class ObstacleManager:
                 pygame.time.delay(500)
                 print("Você Morreu")
                 game.playing = False
-
-
-    def reset_obstacles(self):
-        self.obstacles = []
+                game.death_count += 1
+                game.final_score = game.score
+                game.score = 0
+                break
 
     def draw(self, screen):
         for obstacle in self.obstacles:
             obstacle.draw(screen)
+
+    def reset_obstacles(self):
+        self.obstacles = []
