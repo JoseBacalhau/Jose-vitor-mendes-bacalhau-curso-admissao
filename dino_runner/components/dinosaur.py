@@ -30,6 +30,8 @@ class Dinosaur(Sprite):
     def setup_state(self):
         self.has_power_up = False
         self.shield = False
+        self.hammer = False
+        self.godzilla = False
         self.shield_time_up = 0
         
     def update(self, user_input):

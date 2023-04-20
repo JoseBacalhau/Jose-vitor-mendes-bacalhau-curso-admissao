@@ -1,7 +1,7 @@
 import pygame
 from dino_runner.components.dinosaur import Dinosaur
 
-from dino_runner.utils.constants import BG, ICON, SCREEN_HEIGHT, SCREEN_WIDTH, TITLE, FPS, DEFAULT_TYPE
+from dino_runner.utils.constants import BG, ICON, SCREEN_HEIGHT, SCREEN_WIDTH, TITLE, FPS, DEFAULT_TYPE, GAME_OVER
 
 from dino_runner.utils.text_utils import draw_message_component
 
@@ -26,6 +26,7 @@ class Game:
         self.death_count = 0
         self.comparing = 0
         self.final_score = 0
+        self.best_score = 0
         self.player = Dinosaur()
         self.obstacle_manager = ObstacleManager()
         self.power_up_manager = PowerUpManager()
@@ -60,7 +61,7 @@ class Game:
         self.player.update(user_input)
         self.update_score()
         self.obstacle_manager.update(self)
-        self.power_up_manager.update(self.score, self.game_speed, self.player )
+        self.power_up_manager.update(self )
     
     def update_score(self):
         self.score += 1
@@ -124,10 +125,12 @@ class Game:
         if self.death_count == 0:
             self.text_format("PRESS ANY KEY TO START", half_screen_width - 150, half_screen_height - 150)   
         else:
-            self.screen.blit(ICON, (half_screen_width - 10, half_screen_height - 50))
+            self.screen.blit(GAME_OVER, (half_screen_width - 160, half_screen_height - 200))
+            self.screen.blit(ICON, (half_screen_width - 10, half_screen_height - 10))
             self.text_format("PRESS A KEY TO PLAY AGAIN", half_screen_width - 130, half_screen_height - 150)
-            self.text_format(f"SCORE REACHED: {self.final_score}", half_screen_width - 130, half_screen_height - 110)
-            self.text_format(f"DEATHS: {self.death_count} ", half_screen_width - 130, half_screen_height - 70)
+            self.text_format(f"BEST SCORE: {self.best_score}", half_screen_width - 130, half_screen_height - 120)
+            self.text_format(f"SCORE REACHED: {self.final_score}", half_screen_width - 130, half_screen_height - 90)
+            self.text_format(f"DEATHS: {self.death_count} ", half_screen_width - 130, half_screen_height - 60)
             self.game_speed = 20
         
         pygame.display.update()

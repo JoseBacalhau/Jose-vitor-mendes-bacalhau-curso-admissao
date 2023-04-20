@@ -84,6 +84,8 @@ BG = pygame.image.load(os.path.join(IMG_DIR, 'Other/Track.png'))
 
 HEART = pygame.image.load(os.path.join(IMG_DIR, 'Other/SmallHeart.png'))
 
+GAME_OVER = pygame.image.load(os.path.join(IMG_DIR, 'Other/GameOver.png'))
+
 DEAD = pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoDead.png"))
 
 DEFAULT_TYPE = "default"

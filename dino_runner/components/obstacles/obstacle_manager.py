@@ -27,6 +27,7 @@ class ObstacleManager:
                     game.playing = False
                     game.death_count += 1
                     game.final_score = game.score
+                    self.best_score(game)
                     game.score = 0
                     break
                 else:
@@ -35,6 +36,10 @@ class ObstacleManager:
     def draw(self, screen):
         for obstacle in self.obstacles:
             obstacle.draw(screen)
+    
+    def best_score(self, game):
+        if game.best_score < game.final_score: 
+            game.best_score = game.final_score
 
     def reset_obstacles(self):
         self.obstacles = []
