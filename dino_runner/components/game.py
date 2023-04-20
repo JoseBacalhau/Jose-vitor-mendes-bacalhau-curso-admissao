@@ -1,4 +1,6 @@
 import pygame
+import pygame.mixer
+
 from dino_runner.components.dinosaur import Dinosaur
 
 from dino_runner.utils.constants import BG, ICON, SCREEN_HEIGHT, SCREEN_WIDTH, TITLE, FPS, DEFAULT_TYPE, GAME_OVER
@@ -27,12 +29,14 @@ class Game:
         self.comparing = 0
         self.final_score = 0
         self.best_score = 0
+        self.music = pygame.mixer.Sound("dino_runner/assets/Music/BoxCat Games - Tricks.mp3")
         self.player = Dinosaur()
         self.obstacle_manager = ObstacleManager()
         self.power_up_manager = PowerUpManager()
     
     def execute(self):
         self.running = True
+        self.music.play()
         while self.running:
             if not self.playing:
                 self.show_menu()
