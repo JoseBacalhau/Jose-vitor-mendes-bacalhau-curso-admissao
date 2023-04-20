@@ -43,7 +43,7 @@ class Game:
     def run(self):
         # Game loop: events - update - draw
         for i in range(3, 0, -1):
-            self.screen.fill((255, 255, 255))
+            self.screen.fill((128, 255, 128))
             self.text_format(str(i), SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
             pygame.display.update()
             pygame.time.delay(1000)
@@ -75,7 +75,7 @@ class Game:
 
     def draw(self):
         self.clock.tick(FPS)
-        self.screen.fill((255, 255, 255)) #Também aceita código hexadecimal "#FFFFFF"
+        self.screen.fill((128,224,128)) #Também aceita código hexadecimal "#FFFFFF"
         self.draw_background()
         self.player.draw(self.screen)
         self.obstacle_manager.draw(self.screen)
@@ -124,7 +124,7 @@ class Game:
                 self.comparing += 1
 
     def show_menu(self):
-        self.screen.fill((255, 255, 255))
+        self.screen.fill((128, 255, 0))
         half_screen_height = SCREEN_HEIGHT // 2
         half_screen_width = SCREEN_WIDTH // 2
         if self.death_count == 0:

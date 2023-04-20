@@ -28,15 +28,28 @@ RUNNING_HAMMER = [
 ]
 
 RUNNING_GODZILLA = [
-    pygame.image.load(os.path.join(IMG_DIR, "Godzilla/godzilla.png")),
-    pygame.image.load(os.path.join(IMG_DIR, "Godzilla/godzilla.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Godzilla/godzilla1.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Godzilla/godzilla2.png")),
 ]
 
 
-JUMPING = pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoJump.png"))
-JUMPING_SHIELD = pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoJumpShield.png"))
-JUMPING_HAMMER = pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoJumpHammer.png"))
-JUMPING_GODZILLA = pygame.image.load(os.path.join(IMG_DIR, "Godzilla/godzilla.png"))
+JUMPING = [
+    pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoJump.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoJump.png")),
+]
+JUMPING_SHIELD = [
+    pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoJumpShield.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoJumpShield.png")),
+]
+JUMPING_HAMMER = [
+    pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoJumpHammer.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoJumpHammer.png")),
+]
+
+JUMPING_GODZILLA = [
+    pygame.image.load(os.path.join(IMG_DIR, "Godzilla/godzilla1.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Godzilla/godzilla2.png")),
+]
 
 DUCKING = [
     pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoDuck1.png")),
@@ -54,8 +67,8 @@ DUCKING_HAMMER = [
 ]
 
 DUCKING_GODZILLA = [
-    pygame.image.load(os.path.join(IMG_DIR, "Godzilla/godzilla.png")),
-    pygame.image.load(os.path.join(IMG_DIR, "Godzilla/godzilla.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Godzilla/godzilla1.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Godzilla/godzilla2.png")),
 ]
 
 
@@ -76,8 +89,8 @@ BIRD = [
 ]
 
 CLOUD = [
-    pygame.image.load(os.path.join(IMG_DIR, "Other/Cloud.png")),
-    pygame.image.load(os.path.join(IMG_DIR, "Other/Cloud.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Other/cloud1.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Other/cloud1.png")),
 ]
 SHIELD = pygame.image.load(os.path.join(IMG_DIR, 'Other/shield.png'))
 HAMMER = pygame.image.load(os.path.join(IMG_DIR, 'Other/hammer.png'))

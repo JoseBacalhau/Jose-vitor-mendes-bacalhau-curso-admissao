@@ -7,7 +7,7 @@ from dino_runner.components.obstacles.obstacle import Obstacle
 class Cloud(Obstacle):
     def __init__(self):
         super().__init__(CLOUD, 0)
-        self.rect.y = choice((250, 280, 300))
+        self.rect.y = 50
         self.step_index = 0
 
     def draw(self, screen):

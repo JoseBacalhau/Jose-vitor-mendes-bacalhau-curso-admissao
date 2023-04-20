@@ -26,7 +26,6 @@ class ObstacleManager:
             if game.player.dino_rect.colliderect(obstacle.rect):
                 if not game.player.has_power_up:
                     pygame.time.delay(500)
-                    print("Você Morreu")
                     game.playing = False
                     game.death_count += 1
                     game.final_score = game.score
