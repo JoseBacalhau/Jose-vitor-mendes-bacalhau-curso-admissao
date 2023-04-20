@@ -42,6 +42,11 @@ class Game:
 
     def run(self):
         # Game loop: events - update - draw
+        for i in range(3, 0, -1):
+            self.screen.fill((255, 255, 255))
+            self.text_format(str(i), SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
+            pygame.display.update()
+            pygame.time.delay(1000)
         self.playing = True
         self.obstacle_manager.reset_obstacles()
         self.power_up_manager.reset_power_ups()
@@ -62,7 +67,7 @@ class Game:
         self.update_score()
         self.obstacle_manager.update(self)
         self.power_up_manager.update(self )
-    
+
     def update_score(self):
         self.score += 1
         if self.score % 400 == 0:
