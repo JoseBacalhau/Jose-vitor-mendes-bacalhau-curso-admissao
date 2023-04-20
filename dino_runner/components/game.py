@@ -36,7 +36,7 @@ class Game:
     
     def execute(self):
         self.running = True
-        self.music.play()
+        self.music.play(-1)
         while self.running:
             if not self.playing:
                 self.show_menu()
