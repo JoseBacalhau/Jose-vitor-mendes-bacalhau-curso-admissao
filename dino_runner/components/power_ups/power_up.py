@@ -12,6 +12,9 @@ class PowerUp(Sprite):
         if self.type == 'shield':
             self.rect.x = SCREEN_WIDTH + random.randint(400, 600)
             self.rect.y = random.randint(125, 175)
+        elif self.type == 'godzilla':
+            self.rect.x = SCREEN_WIDTH + random.randint(400, 600)
+            self.rect.y = random.randint(125, 175)    
         else:
             self.rect.x = SCREEN_WIDTH + random.randint(400, 600)
             self.rect.y = random.randint(250, 360)

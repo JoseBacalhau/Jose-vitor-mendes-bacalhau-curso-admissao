@@ -1,11 +1,11 @@
 import pygame
 from pygame.sprite import Sprite
 
-from dino_runner.utils.constants import RUNNING, JUMPING, DUCKING, DEFAULT_TYPE, SHIELD_TYPE, DUCKING_SHIELD, JUMPING_SHIELD, RUNNING_SHIELD, HAMMER_TYPE, DUCKING_HAMMER, JUMPING_HAMMER, RUNNING_HAMMER
+from dino_runner.utils.constants import RUNNING, JUMPING, DUCKING, DEFAULT_TYPE, SHIELD_TYPE, DUCKING_SHIELD, JUMPING_SHIELD, RUNNING_SHIELD, HAMMER_TYPE, DUCKING_HAMMER, JUMPING_HAMMER, RUNNING_HAMMER, GODZILLA_TYPE, JUMPING_GODZILLA, DUCKING_GODZILLA, RUNNING_GODZILLA
 
-DUCK_IMG = {DEFAULT_TYPE: DUCKING, SHIELD_TYPE: DUCKING_SHIELD, HAMMER_TYPE: DUCKING_HAMMER}
-JUMP_IMG = {DEFAULT_TYPE: JUMPING, SHIELD_TYPE: JUMPING_SHIELD, HAMMER_TYPE: JUMPING_HAMMER}
-RUN_IMG = {DEFAULT_TYPE: RUNNING, SHIELD_TYPE: RUNNING_SHIELD, HAMMER_TYPE: RUNNING_HAMMER}
+DUCK_IMG = {DEFAULT_TYPE: DUCKING, SHIELD_TYPE: DUCKING_SHIELD, HAMMER_TYPE: DUCKING_HAMMER, GODZILLA_TYPE: DUCKING_GODZILLA}
+JUMP_IMG = {DEFAULT_TYPE: JUMPING, SHIELD_TYPE: JUMPING_SHIELD, HAMMER_TYPE: JUMPING_HAMMER, GODZILLA_TYPE: JUMPING_GODZILLA}
+RUN_IMG = {DEFAULT_TYPE: RUNNING, SHIELD_TYPE: RUNNING_SHIELD, HAMMER_TYPE: RUNNING_HAMMER, GODZILLA_TYPE: RUNNING_GODZILLA}
 
 class Dinosaur(Sprite):
     
@@ -65,8 +65,12 @@ class Dinosaur(Sprite):
     def run(self):
         self.image = RUN_IMG[self.type][self.step_index // 5] if self.step_index < 5 else RUN_IMG[self.type][1]
         self.dino_rect = self.image.get_rect()
-        self.dino_rect.x = self.X_POS
-        self.dino_rect.y =self. Y_POS
+        if self.type == 'godzilla':
+            self.dino_rect.x = self.X_POS
+            self.dino_rect.y =self. Y_POS - 110
+        else:
+            self.dino_rect.x = self.X_POS
+            self.dino_rect.y =self. Y_POS
         self.step_index += 1
 
     def jump(self):
@@ -76,7 +80,10 @@ class Dinosaur(Sprite):
             self.jump_vel -= 0.9
 
         if self.jump_vel < -self.JUMP_VEL:
-            self.dino_rect.y = self.Y_POS
+            if self.type == 'godzilla':
+                self.dino_rect.y = self.Y_POS - 110
+            else:
+                self.dino_rect.y = self.Y_POS
             self.dino_jump = False
             self.jump_vel = self.JUMP_VEL
 
@@ -84,8 +91,11 @@ class Dinosaur(Sprite):
         self.image = DUCK_IMG[self.type][self.step_index // 5] if self.step_index < 5 else DUCK_IMG[self.type][1]
         self.dino_rect = self.image.get_rect()
         if self.dino_duck:
+            if self.type == 'godzilla':
+                self.dino_rect.y = self.Y_POS - 30
+            else:
+                self.dino_rect.y = self.Y_POS + 35
             self.dino_rect.x = self.X_POS
-            self.dino_rect.y = self.Y_POS + 35
             self.jump_vel = self.JUMP_VEL
         self.step_index += 1
 
